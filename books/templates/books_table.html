@@ -6,24 +6,28 @@
     <title>Books Table</title>
 </head>
 <body>
-    <table border="1">
-        <caption>Table of all books</caption>
-        <tr>
-            <th>Title</th>
-            <th>Author full name</th>
-            <th>Year of publishing</th>
-            <th>Copies printed</th>
-            <th>Short description</th>
-        </tr>
-        {% for book in books %}    
+    {% if books %}
+        <table border="1">
+            <caption>Table of all books</caption>
             <tr>
-                <td>{{ book.title }}</td>
-                <td>{{ book.author_full_name }}</td>
-                <td>{{ book.year_of_publishing }}</td>
-                <td>{{ book.copies_printed }}</td>
-                <td>{{ book.short_description }}</td>
+                <th>Title</th>
+                <th>Author full name</th>
+                <th>Year of publishing</th>
+                <th>Copies printed</th>
+                <th>Short description</th>
             </tr>
-        {% endfor %}
-       </table>
+            {% for book in books %}    
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author_full_name }}</td>
+                    <td>{{ book.year_of_publishing }}</td>
+                    <td>{{ book.copies_printed }}</td>
+                    <td>{{ book.short_description }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h1>There are no books</h1>
+    {% endif %}
 </body>
 </html>
